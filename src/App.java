@@ -2,22 +2,45 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Počet zastávek");
-        int pocetZastavek = sc.nextInt();
-        System.out.println("Zadej jednotlivé vlaky");
-        for (int t=0; t<pocetZastavek; t++) {
-          int[] vlaky = new int[pocetZastavek];
-          for (int i=0; i<pocetZastavek; i++) {
-            vlaky[i] = sc.nextInt();
-          }
-          int pocet = 0;    
-          int aktualni = 0;  
-          while (aktualni < pocetZastavek-1) {
-            aktualni += vlaky[aktualni];
-            pocet++;
-          }
-          System.out.println(pocet);
+        Scanner sc = new Scanner(System.in);    
+        boolean loop = true;
+        while (loop) {
+            loop = false;
+            System.out.println("Zadej počet hlav a počet rytířů");
+            int pocetHlav = sc.nextInt();
+            int[] arrayHlavy = new int[pocetHlav];
+            int pocetRytiru = sc.nextInt();
+            int[] arrayRytiru = new int[pocetRytiru];
+            for (int i = 0; i < arrayHlavy.length; i++) {
+                arrayHlavy[i] = sc.nextInt();
+            }
+            for (int i = 0; i < arrayRytiru.length; i++) {
+                arrayRytiru[i] = sc.nextInt();
+            }
+            int posledni = 0;
+            int vysledek = 0;
+            int pocet = 0;
+            for (int i = 0; i < arrayHlavy.length; i++) {
+                for (int j = 0; j < arrayRytiru.length; j++) {
+                    if(arrayRytiru[j] >= arrayHlavy[i] && posledni != arrayHlavy[i]){
+                        posledni = arrayHlavy[i];
+                        vysledek += arrayRytiru[j];
+                        pocet++;
+                    }
+                }
+            }
+    
+            if(pocet == arrayHlavy.length){
+                System.out.println(vysledek);
+            } else {
+                System.out.println("Draka nelze zabít");
+            }
+
+            System.out.println("Chceš pokračovat?");
+            if(sc.nextLine().equals("ano")){
+                loop = true;
+            } 
         }
+
     }
 }
