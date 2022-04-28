@@ -11,9 +11,11 @@ public class App {
             int[] arrayHlavy = new int[pocetHlav];
             int pocetRytiru = sc.nextInt();
             int[] arrayRytiru = new int[pocetRytiru];
+            System.out.println("Zadej jednotlivé hlavy");
             for (int i = 0; i < arrayHlavy.length; i++) {
                 arrayHlavy[i] = sc.nextInt();
             }
+            System.out.println("Zadej jednotlivé rytíře");
             for (int i = 0; i < arrayRytiru.length; i++) {
                 arrayRytiru[i] = sc.nextInt();
             }
@@ -31,7 +33,7 @@ public class App {
             }
     
             if(pocet == arrayHlavy.length){
-                System.out.println(vysledek);
+                System.out.println("Za zabití draka je potřeba " + vysledek + "mincí.");
             } else {
                 System.out.println("Draka nelze zabít");
             }
