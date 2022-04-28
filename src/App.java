@@ -33,7 +33,7 @@ public class App {
             }
     
             if(pocet == arrayHlavy.length){
-                System.out.println("Za zabití draka je potřeba " + vysledek + "mincí.");
+                System.out.println("Za zabití draka je potřeba " + vysledek + " mincí.");
             } else {
                 System.out.println("Draka nelze zabít");
             }
